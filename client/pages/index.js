@@ -9,10 +9,13 @@ Template.index.rendered = function(){
   }
 
   var addPetsSelected = function(userId, petId){
-    var petsSelectedArray = Users.findOne(userId).petsSelected;
+    if(!!Meteor.users.findOne(userId).profile.petsSelected){
+      Meteor.users.findOne(userId).profile.petsSelected = [];
+    }
+    var petsSelectedArray = Meteor.users.findOne(userId).profile.petsSelected;
     console.log(petsSelectedArray);
     if(_.indexOf(petsSelectedArray, petId, true) == -1){
-      Users.update(userId, {$push: {"petsSelected": petId}} );
+      Users.update(userId, {$push: {profile: {"petsSelected": petId}}} );
     };
   }
 

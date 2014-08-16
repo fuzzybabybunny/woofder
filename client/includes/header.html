@@ -10,12 +10,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Woofder</a>
+        <a class="navbar-brand" href="{{pathFor 'index'}}">Woofder</a>
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li><a href="{{pathFor 'index'}}">Home</a></li>
-          <li><a href="{{pathFor 'myDogs'}}">My dogs</a></li>
+<!--           <li><a href="{{pathFor 'index'}}">Home</a></li> -->
+          {{#if currentUser}}
+          <li><a href="{{pathFor 'myDogs'}}">My Dogs</a></li>
+          {{/if}}
+          {{#if adminUser}}
+          <li><a href="{{pathFor 'addPet'}}">Add Dogs</a></li>
+          {{/if}}
           <li>
             {{#if currentUser}}
               <a href="" id="login-buttons-logout">Log Out</a>

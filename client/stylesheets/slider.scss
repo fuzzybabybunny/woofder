@@ -285,23 +285,23 @@ $distance: 400px;
     }
   }
 
-  .no {
-    left: 38px;
-    .trigger:before {
-      content: "\f00d";
-      font-size: 28px;
-      color: #c33;
-    }
-  }
-
-  .yes {
-    right: 38px;
-    .trigger:before {
-      content: "\f004";
-      font-size: 22px;
-      color: #3b7;
-    }
-  }
+//   // .no {
+//   //   left: 38px;
+//   //   .trigger:before {
+//   //     content: "\f00d";
+//   //     font-size: 28px;
+//   //     color: #c33;
+//   //   }
+//   // }
+//   //
+//   // .yes {
+//   //   right: 38px;
+//   //   .trigger:before {
+//   //     content: "\f004";
+//   //     font-size: 22px;
+//   //     color: #3b7;
+//   //   }
+//   // }
 
   .info {
     left: calc(50% - 23px);
@@ -319,6 +319,7 @@ $distance: 400px;
     }
   }
 }
+
 
 #copy {
   font: 12px "Open Sans";

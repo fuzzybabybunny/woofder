@@ -1,3 +1,4 @@
+/*----- GENERAL -----*/
 body {
   background: white;
 }
@@ -6,6 +7,21 @@ body {
   margin-top: 50px;
 }
 
+/*----- HOME -----*/
+.navbar, .navbar-collapse .collapse, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
+  background: darkred;
+}
+
+.navbar-brand, .navbar-toggle, .navbar, .navbar-collapse .collapse, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, .nav > li a {
+  color: antiquewhite !important;
+}
+
+.person {
+  background: white;
+}
+
+
+/*----- DOG PROFILE -----*/
 .owl-carousel .item img {
     display: block;
     width: 100%;
@@ -21,14 +37,14 @@ body {
   margin-top: 20px;
 }
 
-.navbar, .navbar-collapse .collapse, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
-  background: darkred;
+
+/*----- MY DOGS -----*/
+.mydogs img{
+  width: 100%;
+  padding: 10px 0 10px 0;
 }
 
-.navbar-brand, .navbar-toggle, .navbar, .navbar-collapse .collapse, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, .nav > li a {
-  color: antiquewhite !important;
-}
-
+/*----- SWIPER -----*/
 @-webkit-keyframes yes {
   0% {
     transform: scale(1) rotateZ(0deg);

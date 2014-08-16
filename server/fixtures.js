@@ -1,7 +1,7 @@
 if (Adoptees.find().count() === 0) {
 
 	Adoptees.insert({
-		img_url: 'http://www.independent.co.uk/incoming/article9058882.ece/alternates/w620/briangriffin.jpg',
+		img_url: 'dog1.jpeg',
 		name: 'Brian',
 		age: '8'
 	});

@@ -1,0 +1,1 @@
+Template.myDogs.helpers({  adoptee: function() {    return Adoptees.find();  }});

@@ -5,17 +5,27 @@ Template.index.rendered = function(){
     var selectedByArray = Adoptees.findOne(petId).selectedBy;
     console.log(selectedByArray);
     if(_.indexOf(selectedByArray, userId, true) == -1){
+      console.log("no duplicate found, running add");
+      console.log(petId);
+      console.log(userId);
       Adoptees.update({_id: petId}, {$push: { selectedBy: userId}});
+    } else {
+      console.log("duplicate found - skipping");
     };
   }
 
   var addPetsSelected = function(petId){
-    var userId = Meteor.users.findOne()._id;
-    var petsSelectedArray = Meteor.users.findOne().profile.petsSelected;
+    var userId = Meteor.user()._id;
+    var petsSelectedArray = Meteor.users.findOne({"_id": userId}).profile.petsSelected;
     console.log(petsSelectedArray);
     console.log(_.indexOf(petsSelectedArray, petId, true));
-    if(_.indexOf(petsSelectedArray, petId, true) != -1){
-      Meteor.users.update({_id: userId}, {"$push": { "profile.petsSelected" : petId}});
+    if(_.indexOf(petsSelectedArray, petId, true) == -1){
+      console.log("no duplicate found, running add");
+      console.log(petId);
+      console.log(userId);
+      Meteor.users.update({"_id": userId}, {"$push": { "profile.petsSelected" : petId}});
+    } else {
+      console.log("duplicate found - skipping");
     };
   }
 
@@ -38,13 +48,21 @@ Template.index.rendered = function(){
     pets: Adoptees.find().fetch(),
     add: function(){
       var random = this.pets[Math.floor(Math.random() * this.pets.length)];
-      $('#pets').append("<div class='pet'><img alt='" + random.name + "' src='" + AdopteeImages.findOne(random.imageIds[0]).url() + "' /><span><strong>" + random.name + "</strong>, " + random.age + "</span></div>");
+      var link = "/pets/" + random._id;
+      console.log(link);
+      $('#pets').append("<div class='pet'><img alt='" + random.name + "' src='" + 
+        AdopteeImages.findOne(random.imageIds[0]).url() + "' /><span><strong>" + random.name + 
+        "</strong>, " + random.age + "</span></div>");
+      console.log(random.name);
+      $('.button.info').html( '<a href="/pets/' + random._id + '" class="trigger"></a>' );
+      return random._id;
     }
   };
 
   var App = {
     yesButton: $('.button.yes .trigger'),
     noButton: $('.button.no .trigger'),
+    infoButton: $('.button.info .trigger'),
     blocked: false,
     like: function(liked){
       var animate = liked ? 'animateYes' : 'animateNo';
@@ -61,17 +79,22 @@ Template.index.rendered = function(){
     }
   };
 
+  petId = Pet.add();
+
   App.yesButton.on('mousedown', function(){
     App.like(true);
+    addSelectedBy(petId);
+    addPetsSelected(petId);
   });
+
+  // App.infoButton.on('mousedown', function(){
+  //   App.like(true);
+  // });
 
   App.noButton.on('mousedown', function(){
     App.like(false);
   });
 
-    Pet.add();
-    Pet.add();
-    Pet.add();
-    Pet.add();
+  
 
 }

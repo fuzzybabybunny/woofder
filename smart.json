@@ -4,6 +4,7 @@
     "iron-router": {},
     "collectionFS": {},
     "Dropzonejs": {},
-    "spin": {}
+    "spin": {},
+    "scss": {}
   }
 }

@@ -25,7 +25,7 @@ body {
   background: darkred;
 }
 
-.navbar-brand, .navbar-toggle, .navbar, .navbar-collapse .collapse, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, .nav > li a, {
+.navbar-brand, .navbar-toggle, .navbar, .navbar-collapse .collapse, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus, .nav > li a {
   color: antiquewhite !important;
 }
 

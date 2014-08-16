@@ -127,17 +127,17 @@ body {
 
 }
 
-#people, .person {
+#pets, .pet {
   width: 250px;
   height: 265px;
 }
 
-#people {
+#pets {
   position: relative;
   margin: 0 auto;
 }
 
-.person {
+.pet {
   position: absolute;
   background-color: transparent;
   border-radius: 5px;
@@ -174,12 +174,12 @@ body {
   }
 }
 
-.person img {
+.pet img {
   width: 105%;
   background: white;
 }
 
-.person span {
+.pet span {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -191,7 +191,7 @@ body {
   color: #555;
 }
 
-.person span strong {
+.pet span strong {
   font-weight: 600;
   color: #000;
 }

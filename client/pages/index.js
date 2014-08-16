@@ -5,14 +5,10 @@ Template.index.rendered = function(){
 
   var Person = {
     wrap: $('#people'),
-    people: [
-      {name: 'Linda', age: 25, img: 'img/dog1.jpeg'},
-      {name: 'Chuck', age: 25, img: 'http://funnydogspictures.org/wp-content/uploads/2013/01/betman-funny-dog-picture.jpg'},
-      {name: 'blah', age: 25, img: 'img/dog2.jpg'}
-    ],
+    people: Adoptees.find().fetch(),
     add: function(){
       var random = this.people[Math.floor(Math.random() * this.people.length)];
-      $('#people').append("<div class='person'><img alt='" + random.name + "' src='" + random.img + "' /><span><strong>" + random.name + "</strong>, " + random.age + "</span></div>");
+      $('#people').append("<div class='person'><img alt='" + random.name + "' src='" + random.img_url + "' /><span><strong>" + random.name + "</strong>, " + random.age + "</span></div>");
     }
   };
 

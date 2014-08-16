@@ -10,11 +10,14 @@
                   	Add a Pet
                   </h2>
                   <hr>
-                  <p>
+ <!--                  <p>
                   	{{> dropzone url='http://somewebsite.com/upload' id='dropzoneDiv'}}
-                  </p>
-                  <form role="form" id="addPetForm">
-                      <div class="row">
+                  </p> -->
+                  <div id="addPetForm">
+                  		<div class="form-group">
+                  			<form action="/file-upload" class="dropzone" id="dropzone"></form>
+                  		</div>
+                      <div class="form-group">
                           <div class="form-group col-lg-4">
                               <label>Name</label>
                               <input name="name" type="text" class="form-control">
@@ -27,7 +30,7 @@
                               <button type="submit" id="contactFormSubmitButton" class="btn btn-default">Submit</button>
                           </div>
                       </div>
-                  </form>
+                  </div>
               </div>
           </div>
       </div>

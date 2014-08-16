@@ -5,6 +5,7 @@
     "collectionFS": {},
     "Dropzonejs": {},
     "spin": {},
-    "scss": {}
+    "scss": {},
+    "owl-carousel": {}
   }
 }

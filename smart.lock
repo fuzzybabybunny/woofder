@@ -7,7 +7,8 @@
       "collectionFS": {},
       "Dropzonejs": {},
       "spin": {},
-      "scss": {}
+      "scss": {},
+      "owl-carousel": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -39,6 +40,11 @@
         "git": "https://github.com/fourseven/meteor-scss.git",
         "tag": "v0.9.3",
         "commit": "185f3b2787fb85e653f7b7bf603d1493ed14943d"
+      },
+      "owl-carousel": {
+        "git": "https://github.com/richsilv/meteor-owl-carousel.git",
+        "tag": "v0.1.0",
+        "commit": "cdf148b3ff3b4c715127c7c7497dcee159b37e18"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",

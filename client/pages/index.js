@@ -20,16 +20,22 @@ Template.index.rendered = function(){
 
   var animationEndEvent = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
 
-  var Pet = {
+  // var petsArray = Adoptees.find().fetch();
+
+  // for (var i = 0; i < petsArray.length; i++) {
+  //   var petId = petsArray._id;
+  //   console.log(petId);
+  //   //Do something
+  // }
+
+  // AdopteeImages.findOne(petsArray.findOne())
+
+  Pet = {
     wrap: $('#pets'),
-    pets: [
-      {name: 'Linda', age: 25, img: 'img/dog1.jpeg'},
-      {name: 'Chuck', age: 25, img: 'http://funnydogspictures.org/wp-content/uploads/2013/01/betman-funny-dog-picture.jpg'},
-      {name: 'blah', age: 25, img: 'img/dog2.jpg'}
-    ],
+    pets: Adoptees.find().fetch(),
     add: function(){
       var random = this.pets[Math.floor(Math.random() * this.pets.length)];
-      $('#pets').append("<div class='pet'><img alt='" + random.name + "' src='" + random.img + "' /><span><strong>" + random.name + "</strong>, " + random.age + "</span></div>");
+      $('#pets').append("<div class='pet'><img alt='" + random.name + "' src='" + AdopteeImages.findOne(random.imageIds[0]).url() + "' /><span><strong>" + random.name + "</strong>, " + random.age + "</span></div>");
     }
   };
 

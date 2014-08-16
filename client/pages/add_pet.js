@@ -27,24 +27,21 @@ Template.addPet.rendered = function(){
 
 	if (Meteor.isClient){
 
-		console.log("isClient");
 		Dropzone.autoDiscover = false;
 
 		//Adds file uploading and adds the imageID of the file uploaded
 		//to the petInfo object.
 		var dropzone = new Dropzone("form#dropzone", {
 			accept: function(file, done){
-				FS.Utility.eachFile(event, function(file){
-					AdopteeImages.insert(file, function(err, fileObj){
-						if(err){
-              alert("Error");
-						} else {
-							var fileId = fileObj._id;
-							petInfo.imageIds.push(fileId);
-						};
-					});
+				AdopteeImages.insert(file, function(err, fileObj){
+					if(err){
+            alert("Error");
+					} else {
+						var fileId = fileObj._id;
+						petInfo.imageIds.push(fileId);
+					};
 				});
-				done();
+
 			}
 		});
 

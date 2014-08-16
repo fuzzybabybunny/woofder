@@ -1,6 +1,7 @@
 Template.petProfile.rendered = function(){
 
-	console.log(this.data.name);
+	// console.log(this.data.name);
+	// console.log(this.data.imageIds);
   name = this.data.name;
 
 	var owl = $(".owl-carousel");
@@ -14,3 +15,20 @@ Template.petProfile.rendered = function(){
   });
 
 }
+
+Template.petProfile.helpers({
+
+	'petImagesArray': function(){
+		var imageIdsArray = this.imageIds;
+		var petImagesArray = [];
+		var imageURL = "";
+	  for (var i = 0; i < imageIdsArray.length; i++) {
+	  	console.log(AdopteeImages.findOne(imageIdsArray[i]).url());
+	  	imageURL = AdopteeImages.findOne(imageIdsArray[i]).url();
+	    petImagesArray.push(imageURL);
+	    console.log(petImagesArray);
+	  }
+	  return petImagesArray;
+	}
+
+})

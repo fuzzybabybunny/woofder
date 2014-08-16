@@ -1,4 +1,21 @@
 Template.index.rendered = function(){
+
+  var addSelectedBy = function(personId, petId){
+    var selectedByArray = Adoptees.findOne(petId).selectedBy;
+    console.log(selectedByArray);
+    if(_.indexOf(selectedByArray, personId, true) == -1){
+      Adoptees.update(petId, {$push: {"selectedBy": personId}} );
+    };
+  }
+
+  var addPetsSelected = function(personId, petId){
+    var petsSelectedArray = Users.findOne(personId).petsSelected;
+    console.log(petsSelectedArray);
+    if(_.indexOf(petsSelectedArray, petId, true) == -1){
+      Users.update(personId, {$push: {"petsSelected": petId}} );
+    };
+  }
+  
   $('a[href*=#]').click(function(){return false;});
 
   var animationEndEvent = "webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend";
@@ -47,21 +64,5 @@ Template.index.rendered = function(){
     Person.add();
     Person.add();
     Person.add();
-
-  var addSelectedBy = function(personId, petId){
-  	var selectedByArray = Adoptees.findOne(petId).selectedBy;
-  	console.log(selectedByArray);
-  	if(_.indexOf(selectedByArray, personId, true) == -1){
-  		Adoptees.update(petId, {$push: {"selectedBy": personId}} );
-  	};
-  }
-
-  var addPetsSelected = function(personId, petId){
-  	var petsSelectedArray = Users.findOne(personId).petsSelected;
-  	console.log(petsSelectedArray);
-  	if(_.indexOf(petsSelectedArray, petId, true) == -1){
-  		Users.update(personId, {$push: {"petsSelected": petId}} );
-  	};
-  }
 
 }

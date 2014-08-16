@@ -1,0 +1,1 @@
+Adoptees = new Meteor.Collection('adoptees');

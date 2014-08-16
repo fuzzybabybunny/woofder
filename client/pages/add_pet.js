@@ -23,6 +23,7 @@ Template.addPet.rendered = function(){
 	$('input.form-control').keyup(function(){
 		petInfo.name = $('[name="name"]').val();
 		petInfo.age = $('[name="age"]').val();
+		petInfo.selectedBy = [];
 	});
 
 	if (Meteor.isClient){

@@ -1,21 +1,21 @@
 Template.index.rendered = function(){
 
-  var addSelectedBy = function(userId, petId){
+  var addSelectedBy = function(petId){
+    var userId = Meteor.users.findOne()._id;
     var selectedByArray = Adoptees.findOne(petId).selectedBy;
     console.log(selectedByArray);
     if(_.indexOf(selectedByArray, userId, true) == -1){
-      Adoptees.update(petId, {$push: {"selectedBy": personId}} );
+      Adoptees.update({_id: petId}, {$push: { selectedBy: userId}});
     };
   }
 
-  var addPetsSelected = function(userId, petId){
-    if(!!Meteor.users.findOne(userId).profile.petsSelected){
-      Meteor.users.findOne(userId).profile.petsSelected = [];
-    }
-    var petsSelectedArray = Meteor.users.findOne(userId).profile.petsSelected;
+  var addPetsSelected = function(petId){
+    var userId = Meteor.users.findOne()._id;
+    var petsSelectedArray = Meteor.users.findOne().profile.petsSelected;
     console.log(petsSelectedArray);
-    if(_.indexOf(petsSelectedArray, petId, true) == -1){
-      Users.update(userId, {$push: {profile: {"petsSelected": petId}}} );
+    console.log(_.indexOf(petsSelectedArray, petId, true));
+    if(_.indexOf(petsSelectedArray, petId, true) != -1){
+      Meteor.users.update({_id: userId}, {"$push": { "profile.petsSelected" : petId}});
     };
   }
 

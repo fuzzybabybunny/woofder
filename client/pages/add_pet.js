@@ -1,26 +1,37 @@
+var petInfo = {};
+
 Template.addPet.events({
 
-	'submit form': function(e){
+	'click #addPetSubmitButton': function(e){
 		e.preventDefault();
-
-		var petInfo = {
-			name: $(e.target).find('[name="name"]').val(),
-			age: $(e.target).find('[name="age"]').val()
-		};	
-
-		Adoptees.insert(petInfo);
-
+		var petId = Adoptees.insert(petInfo);
+		Router.go('/pets/' + petId);
 	}
+
+	// 'keyup input.form-control': function(){
+	// 	console.log("keyUp");
+	// 	petInfo.name = $('[name="name"]').val();
+	// 	petInfo.age = $('[name="age"]').val();
+	// }
 
 });
 
-Template.addPet.rendered = function(){
+Template.addPet.rendered = function(){ 
+
+	petInfo.imageIds = [];
+
+	$('input.form-control').keyup(function(){
+		petInfo.name = $('[name="name"]').val();
+		petInfo.age = $('[name="age"]').val();
+	});
 
 	if (Meteor.isClient){
 
 		console.log("isClient");
 		Dropzone.autoDiscover = false;
 
+		//Adds file uploading and adds the imageID of the file uploaded
+		//to the petInfo object.
 		var dropzone = new Dropzone("form#dropzone", {
 			accept: function(file, done){
 				FS.Utility.eachFile(event, function(file){
@@ -29,8 +40,7 @@ Template.addPet.rendered = function(){
               alert("Error");
 						} else {
 							var fileId = fileObj._id;
-							console.log("File ID:");
-							console.log(fileId);
+							petInfo.imageIds.push(fileId);
 						};
 					});
 				});
@@ -40,4 +50,16 @@ Template.addPet.rendered = function(){
 
 	};
 
+
+
 };
+
+          // Images.insert file, (err, fileObj) ->
+          //   if err
+          //     alert "Error exists: ", err
+          //   else
+          //     fileId = fileObj._id
+          //     userId = Meteor.userId()
+          //     Meteor.users.update userId,
+          //       $set:
+          //         'profile.imageId': fileId

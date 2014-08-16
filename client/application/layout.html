@@ -1,8 +1,13 @@
 <template name="layout">
 
 	{{> header}}
-	<div class="top-padding"></div>
-		{{> yield}}
 
+	<div class="top-padding">
+    {{#if currentUser}}
+		  {{> yield}}
+    {{else}}
+      {{> loginButtons}}
+    {{/if}}
+	</div>
 
 </template>

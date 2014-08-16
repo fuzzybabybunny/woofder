@@ -6,8 +6,6 @@
 standard-app-packages
 insecure
 accounts-base
-accounts-facebook
-accounts-ui
 bootstrap-3
 jquery
 email
@@ -19,4 +17,7 @@ Dropzonejs
 spin
 cfs-filesystem
 scss
+accounts-password
+less
+accounts-ui
 owl-carousel

@@ -3,7 +3,11 @@
 	{{> header}}
 
 	<div class="top-padding">
-		{{> yield}}
+    {{#if currentUser}}
+		  {{> yield}}
+    {{else}}
+      {{> loginButtons}}
+    {{/if}}
 	</div>
 
 </template>

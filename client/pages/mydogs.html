@@ -2,8 +2,8 @@
   <div class="container">
     {{#each adoptee}}
       <div class="mydogs">
-        <img src="{{img_url}}">
+        <a href="{{pathFor 'petProfile'}}"><img src="{{img_url}}"></a>
       </div>
     {{/each}}
-  </div> 
+  </div>
 </template>

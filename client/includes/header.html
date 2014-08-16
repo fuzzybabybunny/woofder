@@ -14,11 +14,11 @@
       </div>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="{{pathFor 'index'}}">Home</a></li>
+          <li><a href="{{pathFor 'index'}}">Home</a></li>
           <li><a href="{{pathFor 'myDogs'}}">My dogs</a></li>
-          <li class="pull-right">
+          <li>
             {{#if currentUser}}
-              {{> loginButtons}}
+              <a href="" id="login-buttons-logout">Log Out</a>
             {{/if}}
           </li>
         </ul>

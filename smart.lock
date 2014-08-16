@@ -6,7 +6,8 @@
       "iron-router": {},
       "collectionFS": {},
       "Dropzonejs": {},
-      "spin": {}
+      "spin": {},
+      "scss": {}
     },
     "packages": {
       "bootstrap-3": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/SachaG/meteor-spin.git",
         "tag": "v2.0.4",
         "commit": "f7b1e12a7caff1283cdb3671a393c182d0ae9862"
+      },
+      "scss": {
+        "git": "https://github.com/fourseven/meteor-scss.git",
+        "tag": "v0.9.3",
+        "commit": "185f3b2787fb85e653f7b7bf603d1493ed14943d"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",

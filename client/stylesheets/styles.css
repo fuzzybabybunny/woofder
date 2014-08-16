@@ -1,0 +1,146 @@
+body {
+  background: white;
+}
+
+
+@-webkit-keyframes yes {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+    left: 0;
+  }
+  30% {
+    transform: scale(1.05) rotateZ(0deg);
+    left: 0;
+  }
+  100% {
+    transform: rotateZ(45deg);
+    left: 400px;
+  }
+}
+
+@-moz-keyframes yes {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+    left: 0;
+  }
+  30% {
+    transform: scale(1.05) rotateZ(0deg);
+    left: 0;
+  }
+  100% {
+    transform: rotateZ(45deg);
+    left: 400px;
+  }
+}
+
+@-o-keyframes yes {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+    left: 0;
+  }
+  30% {
+    transform: scale(1.05) rotateZ(0deg);
+    left: 0;
+  }
+  100% {
+    transform: rotateZ(45deg);
+    left: 400px;
+  }
+}
+
+@keyframes yes {
+  0% {
+    transform: scale(1) rotateZ(0deg);
+    left: 0;
+  }
+  30% {
+    transform: scale(1.05) rotateZ(0deg);
+    left: 0;
+  }
+  100% {
+    transform: rotateZ(45deg);
+    left: 400px;
+  }
+}
+
+@-webkit-keyframes no {
+  0% {
+    transform: rotateZ(360deg);
+    right: 0;
+  }
+  30% {
+    transform: scale(1.05) rotateZ(360deg);
+    right: 0;
+  }
+  100% {
+    transform: rotateZ(315deg);
+    right: 400px;
+  }
+}
+
+@-moz-keyframes no {
+  0% {
+    transform: rotateZ(360deg);
+    right: 0;
+  }
+  30% {
+    transform: scale(1.05) rotateZ(360deg);
+    right: 0;
+  }
+  100% {
+    transform: rotateZ(315deg);
+    right: 400px;
+  }
+}
+
+@-o-keyframes no {
+  0% {
+    transform: rotateZ(360deg);
+    right: 0;
+  }
+  30% {
+    transform: scale(1.05) rotateZ(360deg);
+    right: 0;
+  }
+  100% {
+    transform: rotateZ(315deg);
+    right: 400px;
+  }
+}
+
+@keyframes no {
+  0% {
+    transform: rotateZ(360deg);
+    right: 0;
+  }
+  30% {
+    transform: scale(1.05) rotateZ(360deg);
+    right: 0;
+  }
+  100% {
+    transform: rotateZ(315deg);
+    right: 400px;
+  }
+}
+
+.animateYes {
+  animation-fill-mode: both;
+  animation: yes 0.6s linear;
+  transform: rotateZ(-35deg);
+  background: url(http://i.imgur.com/Zkwj970.png) no-repeat center 10px;
+  -webkit-animation: yes 1s ; /* Safari 4+ */
+  -moz-animation:    yes 1s ; /* Fx 5+ */
+  -o-animation:      yes 1s ; /* Opera 12+ */
+  animation:         yes 1s ; /* IE 10+, Fx 29+ */
+}
+
+.animateNo {
+  animation-fill-mode: both;
+  animation: no 0.6s linear;
+  transform: rotateZ(35deg);
+  background: url(http://i.imgur.com/XqQZ4KR.png) no-repeat center 10px;
+  -webkit-animation: no 1s ; /* Safari 4+ */
+  -moz-animation:    no 1s ; /* Fx 5+ */
+  -o-animation:      no 1s ; /* Opera 12+ */
+  animation:         no 1s ; /* IE 10+, Fx 29+ */
+}

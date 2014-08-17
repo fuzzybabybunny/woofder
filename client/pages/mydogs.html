@@ -4,8 +4,11 @@
       <div class="mydogs">
       	<h2>{{name}}</h2>
       	<h2>{{imageIds}}</h2>
-        <!-- <a href="{{pathFor 'petProfile'}}"><img src="{{img_url}}"></a> -->
+        <a href="{{pathFor 'petProfile'}}"><img src="{{imageUrl}}"></a>
       </div>
     {{/each}}
+<!--     {{#each petImagesArray}}
+			<h2>{{this}}</h2>
+    {{/each}} -->
   </div>
 </template>

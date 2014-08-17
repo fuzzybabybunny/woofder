@@ -1,8 +1,10 @@
 <template name="myDogs">
   <div class="container">
-    {{#each adoptee}}
+    {{#each adoptees}}
       <div class="mydogs">
-        <a href="{{pathFor 'petProfile'}}"><img src="{{img_url}}"></a>
+      	<h2>{{name}}</h2>
+      	<h2>{{age}}</h2>
+        <!-- <a href="{{pathFor 'petProfile'}}"><img src="{{img_url}}"></a> -->
       </div>
     {{/each}}
   </div>

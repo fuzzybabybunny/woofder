@@ -23,15 +23,19 @@ body {
 .logo-home{
   text-align: center;
   color: darkred;
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-brand, .navbar-default .navbar-nav > li > a {
-  font-family: 'Abril Fatface', cursive;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .navbar-brand{
-margin-left: 100px;
+  margin-left: 80px;
+}
+
+.logo-home img{
+  max-width: 200px;
 }
 
 

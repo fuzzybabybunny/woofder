@@ -50,19 +50,19 @@ Template.index.rendered = function(){
       var random = this.pets[Math.floor(Math.random() * this.pets.length)];
       var link = "/pets/" + random._id;
       console.log(link);
-      $('#pets').append("<div class='pet'><img alt='" + random.name + "' src='" + 
-        AdopteeImages.findOne(random.imageIds[0]).url() + "' /><span><strong>" + random.name + 
+      $('#pets').append("<div class='pet'><img alt='" + random.name + "' src='" +
+        AdopteeImages.findOne(random.imageIds[0]).url() + "' /><span><strong>" + random.name +
         "</strong>, " + random.age + "</span></div>");
       console.log(random.name);
-      $('.button.info').html( '<a href="/pets/' + random._id + '" class="trigger"></a>' );
+      $('.info-sign').html( '<a href="/pets/' + random._id + '"><span class="glyphicon glyphicon-info-sign"></span></a>' );
       return random._id;
     }
   };
 
   var App = {
-    yesButton: $('.button.yes .trigger'),
-    noButton: $('.button.no .trigger'),
-    infoButton: $('.button.info .trigger'),
+    yesButton: $('.heart'),
+    noButton: $('.nope'),
+    infoButton: $('.info-sign'),
     blocked: false,
     like: function(liked){
       var animate = liked ? 'animateYes' : 'animateNo';
@@ -95,6 +95,6 @@ Template.index.rendered = function(){
     App.like(false);
   });
 
-  
+
 
 }

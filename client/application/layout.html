@@ -1,11 +1,13 @@
 <template name="layout">
-
-	{{> header}}
+	{{#if currentUser}}
+		{{> header}}
+	{{/if}}
 
 	<div class="top-padding">
     {{#if currentUser}}
 		  {{> yield}}
     {{else}}
+			<h1 class="logo-home">WOOFDER</h1>
       {{> loginButtons}}
     {{/if}}
 	</div>

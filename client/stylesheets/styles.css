@@ -16,6 +16,20 @@ body {
   color: antiquewhite !important;
 }
 
+.login-close-text{
+  display: none;
+}
+
+.logo-home{
+  text-align: center;
+  color: darkred;
+  font-family: 'Abril Fatface', cursive;
+}
+
+.navbar-brand, .navbar-default .navbar-nav > li > a {
+  font-family: 'Abril Fatface', cursive;
+}
+
 /*----- HOME -----*/
 .navbar, .navbar-collapse .collapse, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
   background: darkred;
@@ -49,12 +63,34 @@ body {
     color: #3b7;
 }
 
+.swipe-icons{
+  margin-top: 20px;
+  font-size: 40px;
+  text-align: center;
+  color: darkgray;
+}
+
+a .info-sign, .info-sign{
+  font-size: 30px !important;
+  color: lightblue !important;
+}
+
+.glyphicon-info-sign:before {
+  color: lightblue !important;
+}
+
+.heart{
+  color: darkred;
+}
+
+
 
 /*----- DOG PROFILE -----*/
 .owl-carousel .item img {
     display: block;
-    width: 100%;
-    height: auto;
+    width: auto;
+    height: 200px;
+    margin: 0 auto;
 }
 
 .center-button {

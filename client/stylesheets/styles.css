@@ -49,6 +49,27 @@ body {
     color: #3b7;
 }
 
+.swipe-icons{
+  margin-top: 20px;
+  font-size: 40px;
+  text-align: center;
+  color: darkgray;
+}
+
+a .info-sign, .info-sign{
+  font-size: 30px !important;
+  color: lightblue !important;
+}
+
+.glyphicon-info-sign:before {
+  color: lightblue !important;
+}
+
+.heart{
+  color: darkred;
+}
+
+
 
 /*----- DOG PROFILE -----*/
 .owl-carousel .item img {

@@ -30,6 +30,11 @@ body {
   font-family: 'Abril Fatface', cursive;
 }
 
+.navbar-brand{
+margin-left: 100px;
+}
+
+
 /*----- HOME -----*/
 .navbar, .navbar-collapse .collapse, .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus{
   background: darkred;
@@ -95,6 +100,11 @@ a .info-sign, .info-sign{
 
 .center-button {
   text-align: center;
+}
+
+.btn a{
+  color: antiquewhite !important;
+  text-decoration: none !important;
 }
 
 .btn {

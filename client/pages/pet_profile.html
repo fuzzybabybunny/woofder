@@ -1,15 +1,17 @@
 <template name="petProfile">
 <div class="container">
   <h2>{{name}}, {{age}}</h2>
-  
+
   <div class="owl-carousel">
     {{#each petImagesArray}}
     <div class="item"> <img src="{{this}}"></div>
     {{/each}}
   </div>
-  
+
   <div class="center-button">
-    <div class="btn btn-success">Adopt me!</div>
+    <div class="btn btn-success">
+      <a href="mailto:contact@kirstenszoo.com?Subject=Adopting%20{{name}}" target="_top">Adopt me!</a>
+    </div>
   </div>
 
 </div>

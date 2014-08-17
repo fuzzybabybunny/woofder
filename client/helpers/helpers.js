@@ -1,3 +1,5 @@
 UI.registerHelper('adminUser', function(){
-	return Meteor.user().profile.admin;
+	if(Meteor.user()){
+		return Meteor.user().profile.admin;
+	}
 })

@@ -1,9 +1,10 @@
 Template.index.rendered = function(){
 
-var userId = Meteor.users.findOne()._id;
+  var userId = Meteor.users.findOne()._id;
 
-  alreadyAdded = function(petId, userId){
+  var alreadyAdded = function(petId, userId){
     var selectedByArray = Adoptees.findOne(petId).selectedBy;
+    console.log("The current pet's ID is " + petId);
     console.log("Array of users that have selected this pet:");
     console.log(selectedByArray);
     console.log("Current user ID");
@@ -45,19 +46,29 @@ var userId = Meteor.users.findOne()._id;
   Pet = {
     wrap: $('#pets'),
     pets: Adoptees.find().fetch(),
-    add: function(){
-      var random = this.pets[Math.floor(Math.random() * this.pets.length)];
-      var link = "/pets/" + random._id;
-      console.log(link);
-      $('#pets').append("<div class='pet'><img alt='" + random.name + "' src='" +
-        AdopteeImages.findOne(random.imageIds[0]).url() + "' /><span><strong>" + random.name +
-        "</strong>, " + random.age + "</span></div>");
-      console.log(random.name);
-      $('.info-sign').html( '<a href="/pets/' + random._id + '"><span class="glyphicon glyphicon-info-sign"></span></a>' );
-      return random._id;
+    newPetCard: function(){
+      // "newPetCard" generates the HTML for the pet HTML randomly.
+      // Calling newPetCard will create a NEW pet card
+      // and return the ID of the pet on that new card
+      var randomPet = this.pets[Math.floor(Math.random() * this.pets.length)];
+      console.log("randomPet");
+      console.log(randomPet);
+      var link = "/pets/" + randomPet._id;
+      // Creates the Card HTML
+      $('#pets').append("<div class='pet'><img alt='" + randomPet.name + "' src='" +
+        AdopteeImages.findOne(randomPet.imageIds[0]).url() + "' /><span><strong>" + randomPet.name +
+        "</strong>, " + randomPet.age + "</span></div>");
+      console.log("Pet's name");
+      console.log(randomPet.name);
+      // Creates the more info HTML
+      $('.info-sign').attr('data-petid', randomPet._id);
+      $('.info-sign').html( '<a href="/pets/' + randomPet._id + '"><span class="glyphicon glyphicon-info-sign"></span></a>' );
+      console.log("current Pet's ID:");
+      console.log(randomPet._id);
+      Session.set("currentPetId", randomPet._id);
+      return randomPet._id;
     }
   };
-  
 
   var App = {
     yesButton: $('.heart'),
@@ -72,23 +83,26 @@ var userId = Meteor.users.findOne()._id;
           $('.pet').eq(0).addClass(animate).one(animationEndEvent, function(){
             $('.animateYes').remove();
             $('.animateNo').remove();
-            Pet.add();
+            Pet.newPetCard();
             self.blocked = false;
         });
       }
     }
   };
 
-  petId = Pet.add();
+  // petId = Pet.add();
 
   App.yesButton.on('mousedown', function(){
-    App.like(true);
-    if( !alreadyAdded(petId, userId) ){
-      addSelectedBy(petId, userId);
-      addPetsSelected(petId, userId);
+    // This is NOT a reliable way to get the current pet's ID
+    var currentPetId = Session.get("currentPetId");
+    console.log("The current pet ID is " + currentPetId);
+    if( !alreadyAdded(currentPetId, userId) ){
+      addSelectedBy(currentPetId, userId);
+      addPetsSelected(currentPetId, userId);
     } else {
       console.log("pet already added my user");
     }
+    App.like(true);
   });
 
   // App.infoButton.on('mousedown', function(){
@@ -99,6 +113,7 @@ var userId = Meteor.users.findOne()._id;
     App.like(false);
   });
 
-
+  // Should run only once on load.
+  var currentPetId = Pet.newPetCard();
 
 }

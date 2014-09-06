@@ -65,6 +65,7 @@ Template.index.rendered = function(){
       return random._id;
     }
   };
+  
 
   var App = {
     yesButton: $('.heart'),

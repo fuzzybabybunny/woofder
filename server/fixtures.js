@@ -25,6 +25,12 @@ if ( Meteor.users.find().count() === 0 ) {
 
 };
 
+Accounts.onCreateUser(function(options, user) {
+	user.profile = {};
+	user.profile.petsSelected = [];
+	return user;
+});
+
 if (Adoptees.find().count() === 0) {
 
 	Adoptees.insert({

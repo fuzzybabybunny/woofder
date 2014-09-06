@@ -16,13 +16,15 @@ Template.addPet.events({
 
 });
 
-Template.addPet.rendered = function(){ 
+Template.addPet.rendered = function(){
 
 	petInfo.imageIds = [];
 
 	$('input.form-control').keyup(function(){
 		petInfo.name = $('[name="name"]').val();
 		petInfo.age = $('[name="age"]').val();
+		petInfo.location = $('[name="location"]').val();
+		petInfo.about = $('[name="about"]').val();
 		petInfo.selectedBy = [];
 	});
 

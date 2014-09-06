@@ -3,8 +3,11 @@ Template.index.rendered = function(){
   var addSelectedBy = function(petId){
     var userId = Meteor.users.findOne()._id;
     var selectedByArray = Adoptees.findOne(petId).selectedBy;
+    console.log("This is the selectedByArray:");
     console.log(selectedByArray);
-    if(_.indexOf(selectedByArray, userId, true) == -1){
+    console.log("This is the thing it tries to find in selectedByArray:");
+    console.log(userId);
+    if(_.indexOf(selectedByArray, userId) == -1){
       console.log("no duplicate found, running add");
       console.log(petId);
       console.log(userId);
@@ -17,8 +20,12 @@ Template.index.rendered = function(){
   var addPetsSelected = function(petId){
     var userId = Meteor.user()._id;
     var petsSelectedArray = Meteor.users.findOne({"_id": userId}).profile.petsSelected;
+    console.log("This is the petsSelectedArray:");
     console.log(petsSelectedArray);
-    console.log(_.indexOf(petsSelectedArray, petId, true));
+    console.log("This is the thing it tries to find in petsSelectedArray:");
+    console.log(petId);
+    console.log("This is the index of the petId it is trying to find:");
+    console.log(_.indexOf(petsSelectedArray, petId));
     if(_.indexOf(petsSelectedArray, petId, true) == -1){
       console.log("no duplicate found, running add");
       console.log(petId);

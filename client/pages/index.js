@@ -1,39 +1,31 @@
 Template.index.rendered = function(){
 
-  var addSelectedBy = function(petId){
-    var userId = Meteor.users.findOne()._id;
+var userId = Meteor.users.findOne()._id;
+
+  alreadyAdded = function(petId, userId){
     var selectedByArray = Adoptees.findOne(petId).selectedBy;
-    console.log("This is the selectedByArray:");
+    console.log("Array of users that have selected this pet:");
     console.log(selectedByArray);
-    console.log("This is the thing it tries to find in selectedByArray:");
+    console.log("Current user ID");
     console.log(userId);
-    if(_.indexOf(selectedByArray, userId) == -1){
-      console.log("no duplicate found, running add");
-      console.log(petId);
-      console.log(userId);
-      Adoptees.update({_id: petId}, {$push: { selectedBy: userId}});
+    console.log("index of the userId inside the pet's array of users");
+    console.log( _.indexOf(selectedByArray, userId) );
+    if(_.indexOf(selectedByArray, userId) !== -1){
+      console.log("duplicate found");
+      return true;
     } else {
-      console.log("duplicate found - skipping");
-    };
+      console.log("no duplicate found, safe to add");
+      return false;
+    }
   }
 
-  var addPetsSelected = function(petId){
-    var userId = Meteor.user()._id;
-    var petsSelectedArray = Meteor.users.findOne({"_id": userId}).profile.petsSelected;
-    console.log("This is the petsSelectedArray:");
-    console.log(petsSelectedArray);
-    console.log("This is the thing it tries to find in petsSelectedArray:");
-    console.log(petId);
-    console.log("This is the index of the petId it is trying to find:");
-    console.log(_.indexOf(petsSelectedArray, petId));
-    if(_.indexOf(petsSelectedArray, petId, true) == -1){
-      console.log("no duplicate found, running add");
-      console.log(petId);
-      console.log(userId);
-      Meteor.users.update({"_id": userId}, {"$push": { "profile.petsSelected" : petId}});
-    } else {
-      console.log("duplicate found - skipping");
-    };
+  var addSelectedBy = function(petId, userId){
+    Adoptees.update({_id: petId}, {$push: { selectedBy: userId}});
+  }
+
+  var addPetsSelected = function(petId, userId){
+    Meteor.users.update({"_id": userId}, {"$push": { "profile.petsSelected" : petId}});
+    console.log("with with ID " + petId + " has been pushed to the petsSelected array");
   }
 
   $('a[href*=#]').click(function(){return false;});
@@ -91,8 +83,12 @@ Template.index.rendered = function(){
 
   App.yesButton.on('mousedown', function(){
     App.like(true);
-    addSelectedBy(petId);
-    addPetsSelected(petId);
+    if( !alreadyAdded(petId, userId) ){
+      addSelectedBy(petId, userId);
+      addPetsSelected(petId, userId);
+    } else {
+      console.log("pet already added my user");
+    }
   });
 
   // App.infoButton.on('mousedown', function(){

@@ -1,7 +1,5 @@
 Template.petProfile.rendered = function(){
 
-	// console.log(this.data.name);
-	// console.log(this.data.imageIds);
   name = this.data.name;
 
 	var owl = $(".owl-carousel");
@@ -13,7 +11,6 @@ Template.petProfile.rendered = function(){
       itemsTablet: [600,2], //2 items between 600 and 0
       itemsMobile : false, // itemsMobile disabled - inherit from itemsTablet option
   });
-
 }
 
 Template.petProfile.helpers({

@@ -8,28 +8,27 @@
     {{/each}}
   </div>
 
-  <section class="ac-container">
-				<div>
-					<input id="ac-1" name="accordion-1" type="checkbox" />
-					<label for="ac-1">About me</label>
-					<article class="ac-small">
-            <p>Hi, my name is {{name}} and I'm {{age}} years old. I was found homeless {{stay}} years ago.  I am healthy and happy and looking for a new home.</p>
-					</article>
-				</div>
-				<div>
-					<input id="ac-2" name="accordion-1" type="checkbox" />
-					<label for="ac-2">Where am I now?</label>
-					<article class="ac-small">
-						<p>I'm currently staying in the Hong Kong SPCA in Wan Chai</p>
-					</article>
-				</div>
-			</section>
+  <section class="about-me">
+    <h3 class="descriptionh3">Description</h3>
+    <article class="description">
+      <p>Hi, my name is {{name}} and I'm {{age}} years old. I was found homeless {{stay}} years ago.  I am healthy and happy and looking for a new home.</p>
+    </article>
+
+    <h3 class="descriptionh3">Location</h3>
+    <article class="description">
+      <p>I'm currently staying in the Hong Kong SPCA in Wan Chai</p>
+    </article>
+  </section>
+
+  <br>
 
     <div class="center-button">
       <div class="btn btn-success">
         <a href="mailto:contact@kirstenszoo.com?Subject=Adopting%20{{name}}" target="_top">Adopt me!</a>
       </div>
     </div>
+
+  <br>
 
 </div>
 

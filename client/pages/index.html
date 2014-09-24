@@ -1,12 +1,16 @@
 <template name="index">
 
-  <div id="app">
-    <div id="pets"></div>
-    <div id="control">
-      <div class="row swipe-icons">
-        <div class="col-xs-4 nope"><img src="img/bones.png"></div>
+  <div id="app" class="col-lg-12">
+  	<div class="col-lg-12">
+	  	<div class="col-lg-4"></div>
+	    <div id="petsDraggable" class="col-lg-4 ui-widget-content"></div>
+	    <div class="col-lg-4"></div>
+	  </div>
+    <div id="control" class="col-lg-12">
+      <div class="col-lg-12 row swipe-icons">
+        <div id="reject" class="ui-widget-header col-xs-4 nope"><img src="img/bones.png"></div>
         <div class="col-xs-4 info-sign"><span class="glyphicon glyphicon-info-sign"></span></div>
-        <div class="col-xs-4 heart"><img src="img/paw.png"></div>
+        <div id="accept" class="ui-widget-header col-xs-4 heart"><img src="img/paw.png"></div>
       </div>
     </div>
  </div>

@@ -44,7 +44,7 @@ Template.index.rendered = function(){
   // AdopteeImages.findOne(petsArray.findOne())
 
   Pet = {
-    wrap: $('#pets'),
+    wrap: $('#petsDraggable'),
     pets: Adoptees.find().fetch(),
     newPetCard: function(){
       // "newPetCard" generates the HTML for the pet HTML randomly.
@@ -55,7 +55,7 @@ Template.index.rendered = function(){
       console.log(randomPet);
       var link = "/pets/" + randomPet._id;
       // Creates the Card HTML
-      $('#pets').append("<div class='pet'><img alt='" + randomPet.name + "' src='" +
+      $('#petsDraggable').append("<div class='pet'><img alt='" + randomPet.name + "' src='" +
         AdopteeImages.findOne(randomPet.imageIds[0]).url() + "' /><span><strong>" + randomPet.name +
         "</strong>, " + randomPet.age + "</span></div>");
       console.log("Pet's name");
@@ -115,5 +115,33 @@ Template.index.rendered = function(){
 
   // Should run only once on load.
   var currentPetId = Pet.newPetCard();
+
+  $(function() {
+    $( "#draggable" ).draggable({ revert: "valid" });
+    $( "#petsDraggable" ).draggable({ revert: "invalid" });
+
+    $( "#accept" ).droppable({
+      activeClass: "ui-state-default",
+      hoverClass: "ui-state-hover",
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
+
+    $( "#reject" ).droppable({
+      activeClass: "ui-state-default",
+      hoverClass: "ui-state-hover",
+      drop: function( event, ui ) {
+        $( this )
+          .addClass( "ui-state-highlight" )
+          .find( "p" )
+            .html( "Dropped!" );
+      }
+    });
+
+  });
 
 }

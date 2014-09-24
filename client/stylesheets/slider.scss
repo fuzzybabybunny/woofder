@@ -57,7 +57,7 @@ body {
   }
 }
 
-#app {
+/*#app {
   margin-top: 50px;
   overflow: hidden;
   width: $phoneWidth - 40px;
@@ -65,7 +65,7 @@ body {
   position: absolute;
   top: calc(50% - 210px);
   left: calc(50% - 140px);
-}
+}*/
 
 #app .header {
   height: 50px;
@@ -247,9 +247,9 @@ $distance: 400px;
 // }
 
 #control {
-  position: relative;
+/*  position: relative;
   margin: 15px auto 0;
-  width: 250px;
+  width: 250px;*/
   .button {
     width: 65px;
     height: 65px;
